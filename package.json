@@ -16,6 +16,12 @@
   "scripts": {
     "start": "node bin/cos-dump-cli.js"
   },
+  "files": [
+    "bin/",
+    "lib/",
+    "package.json",
+    "README.md"
+  ],
   "dependencies": {
     "cos-nodejs-sdk-v5": "^2.0.1",
     "yargs": "^17.6.0"
