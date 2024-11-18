@@ -1,6 +1,6 @@
 {
   "name": "cos-dump",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A command-line tool to download files from Tencent Cloud COS.",
   "main": "./lib/cos-dump.js",
   "bin": {
