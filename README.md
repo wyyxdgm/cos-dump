@@ -2,7 +2,9 @@
 
 完整备份腾讯云 cos 对象存储到本地
 
-### 脚本调用
+### 调用方式
+
+#### 脚本调用
 
 ```js
 const { listAndDownloadFiles } = require("cos-download");
@@ -10,13 +12,13 @@ const { listAndDownloadFiles } = require("cos-download");
 (async () => {
   try {
     const config = {
-      SecretId: process.env.COS_SECRETID,
+      SecretId: process.env.COS_SECRETID, // SecretId,SecretKey 获取地址 https://console.cloud.tencent.com/cam/capi
       SecretKey: process.env.COS_SECRETKEY,
-      Bucket: process.env.COS_BUCKET,
-      Region: process.env.COS_REGION,
+      Bucket: process.env.COS_BUCKET, // 存储桶实例名称，格式参考：name-123123
+      Region: process.env.COS_REGION, // ap-xxxx
       dir: process.env.COS_DIR || "downloads",
       ckpt: process.env.COS_CKPT || "checkpoint.json",
-      failPath: process.env.COS_FAILPATH,
+      failPath: process.env.COS_FAILPATH || "fail.json",
     };
 
     await listAndDownloadFiles(config);
@@ -26,21 +28,27 @@ const { listAndDownloadFiles } = require("cos-download");
 })();
 ```
 
-### 命令行参数
+#### 命令行参数
 
 ```bash
 cos-dump --secret-id YOUR_SECRET_ID --secret-key YOUR_SECRET_KEY --bucket YOUR_BUCKET_NAME --region YOUR_REGION --dir downloads --ckpt checkpoint.json --fail-path fail.json
 ```
 
-### 环境变量
+- 举例
 
 ```bash
-export COS_SECRETID=
-export COS_SECRETKEY=
-export COS_BUCKET=
-export COS_REGION=
-export COS_DIR=
-export COS_CKPT=
-export COS_FAILPATH=
+cos-dump --secret-id xxxxx --secret-key xxxxx --bucket bucket-112233 --region ap-shanghai --dir downloads --ckpt checkpoint.json --fail-path fail.json
+```
+
+#### 使用环境变量
+
+```bash
+export COS_SECRETID=xxx
+export COS_SECRETKEY=xxx
+export COS_BUCKET=xxx
+export COS_REGION=xxx
+# export COS_DIR=xxx
+# export COS_CKPT=xxx
+# export COS_FAILPATH=xxx
 cos-dump
 ```
