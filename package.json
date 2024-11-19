@@ -1,0 +1,23 @@
+{
+  "name": "cos-dump",
+  "version": "1.0.0",
+  "description": "A command-line tool to download files from Tencent Cloud COS.",
+  "main": "./lib/cos-dump.js",
+  "bin": {
+    "cos-dump": "./bin/cos-dump-cli.js"
+  },
+  "keywords": [
+    "cos",
+    "dump",
+    "Tencent",
+    "download",
+    "腾讯云"
+  ],
+  "scripts": {
+    "start": "node bin/cos-dump-cli.js"
+  },
+  "dependencies": {
+    "cos-nodejs-sdk-v5": "^2.0.1",
+    "yargs": "^17.6.0"
+  }
+}
