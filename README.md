@@ -2,12 +2,26 @@
 
 完整备份腾讯云 cos 对象存储到本地
 
+### 安装
+
+- 项目级别
+
+```bash
+npm i cos-dump
+```
+
+- 全局安装
+
+```bash
+npm i -g cos-dump
+```
+
 ### 调用方式
 
 #### 脚本调用
 
 ```js
-const { listAndDownloadFiles } = require("cos-download");
+const { listAndDownloadFiles } = require("cos-dump");
 // 使用示例
 (async () => {
   try {
